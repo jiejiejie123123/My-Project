@@ -3,30 +3,20 @@
     <div>
       <Logo />
       <h1 class="title">My-Project</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+      <nuxt-link to="/register">注册</nuxt-link>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+layout:'app',
+async mounted(){
+  let res = await this.$http.get('/demoInfo')
+  console.log(res.data);
+console.log(this.$store.state);
+}
+}
 </script>
 
 <style>
